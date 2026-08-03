@@ -62,4 +62,13 @@ describe('scoreFrame', () => {
     const score = scoreFrame(a);
     expect(classifyFrame(score, a)).toBe('natural');
   });
+
+  it('wave·natural 동점 시 쇄골이 내추럴을 지목하면 natural (고정 우선순위 wave를 이김)', () => {
+    const answers = {
+      'f-wrist': 1,       // wave +1
+      'f-flesh': 1,       // wave +1  => wave 2
+      'f-collarbone': 2,  // natural +2 => natural 2 (동점, 쇄골이 natural 지목)
+    };
+    expect(classifyFrame(scoreFrame(answers), answers)).toBe('natural');
+  });
 });
