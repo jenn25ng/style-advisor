@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { scoreColor, scoreFrame, classifyColor, classifyFrame } from '../scoring';
 import { colorQuestions, frameQuestions } from '../../data/questions';
-import type { Answers } from '../../types';
+import type { Answers, ColorScore, ColorTypeId } from '../../types';
 
 function pick(questions: { id: string; options: { label: string }[] }[], byLabel: Record<string, string>): Answers {
   const a: Answers = {};
@@ -41,6 +41,24 @@ describe('scoreColor', () => {
     const onlyVeinWarm = scoreColor(pick(colorQuestions, { 'c-vein': '초록' }));
     const onlyMetalWarm = scoreColor(pick(colorQuestions, { 'c-metal': '골드' }));
     expect(Math.abs(onlyVeinWarm.warmCool)).toBeLessThan(Math.abs(onlyMetalWarm.warmCool));
+  });
+});
+
+describe('classifyColor 커버리지', () => {
+  it('8개 색 타입이 모두 도달 가능하다', () => {
+    const cases: Array<[ColorScore, ColorTypeId]> = [
+      [{ warmCool: 3, value: 3, chroma: 3 }, 'spring-bright'],
+      [{ warmCool: 3, value: 3, chroma: -3 }, 'spring-light'],
+      [{ warmCool: 3, value: -1, chroma: -1 }, 'autumn-mute'],
+      [{ warmCool: 3, value: -3, chroma: -1 }, 'autumn-deep'],
+      [{ warmCool: -3, value: 3, chroma: -3 }, 'summer-light'],
+      [{ warmCool: -3, value: -3, chroma: -3 }, 'summer-mute'],
+      [{ warmCool: -3, value: 3, chroma: 3 }, 'winter-bright'],
+      [{ warmCool: -3, value: -3, chroma: 3 }, 'winter-deep'],
+    ];
+    const produced = new Set(cases.map(([s]) => classifyColor(s)));
+    expect(produced.size).toBe(8); // 모두 서로 다른 8타입
+    for (const [score, expected] of cases) expect(classifyColor(score)).toBe(expected);
   });
 });
 

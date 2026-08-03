@@ -12,6 +12,8 @@ export function StepCard({ text, options, selected, onSelect }: Props) {
         {options.map((label, i) => (
           <button
             key={i}
+            type="button"
+            aria-pressed={selected === i}
             className={`option-btn ${selected === i ? 'selected' : ''}`}
             onClick={() => onSelect(i)}
           >

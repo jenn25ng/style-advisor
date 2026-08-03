@@ -10,17 +10,24 @@ export function PhotoColorPicker({ onHint, onSkip }: Props) {
   const [ready, setReady] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // 이전 objectURL을 해제해 메모리 누수를 막는다. (jsdom 등 revokeObjectURL 미지원 환경 방어)
+  function revoke(url: string | null) {
+    if (url && typeof URL.revokeObjectURL === 'function') URL.revokeObjectURL(url);
+  }
+
   function onFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
     if (!file.type.startsWith('image/')) {
       setError('이미지 파일만 올릴 수 있어요.');
+      revoke(src);
       setSrc(null);
       setReady(false);
       return;
     }
     setError(null);
     setReady(false);
+    revoke(src);
     setSrc(URL.createObjectURL(file));
   }
 

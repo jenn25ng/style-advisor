@@ -2,8 +2,12 @@ import { create } from 'zustand';
 import type { Answers, DiagnosisResult, PhotoHint } from '../types';
 import { scoreColor, scoreFrame, classifyColor, classifyFrame } from '../engine/scoring';
 import { colorTypes } from '../data/colorTypes';
+import { frameTypes } from '../data/frameTypes';
 
 const KEY = 'sa:lastResult';
+
+const COLOR_IDS = new Set(colorTypes.map((c) => c.id));
+const FRAME_IDS = new Set(frameTypes.map((f) => f.id));
 
 interface State {
   answers: Answers;
@@ -40,7 +44,11 @@ export const useDiagnosisStore = create<State>((set, get) => ({
   loadResult: () => {
     try {
       const raw = localStorage.getItem(KEY);
-      return raw ? (JSON.parse(raw) as DiagnosisResult) : null;
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as DiagnosisResult;
+      // 저장된 blob이 오래되었거나 손상되어 알 수 없는 타입 id를 담고 있으면 렌더 크래시를 막기 위해 무시한다.
+      if (!COLOR_IDS.has(parsed?.colorType) || !FRAME_IDS.has(parsed?.frameType)) return null;
+      return parsed;
     } catch { return null; }
   },
   reset: () => set({ answers: {}, photoHint: undefined }),

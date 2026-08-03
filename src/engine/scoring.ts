@@ -24,7 +24,7 @@ export function classifyColor(s: ColorScore): ColorTypeId {
 
   switch (season) {
     case 'spring': return s.chroma >= 0 ? 'spring-bright' : 'spring-light';
-    case 'autumn': return s.value <= 0 ? 'autumn-deep' : 'autumn-mute';
+    case 'autumn': return s.value <= -2 ? 'autumn-deep' : 'autumn-mute';
     case 'summer': return s.value >= 0 ? 'summer-light' : 'summer-mute';
     case 'winter': return s.value <= 0 ? 'winter-deep' : 'winter-bright';
   }

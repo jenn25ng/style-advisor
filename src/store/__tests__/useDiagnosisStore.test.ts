@@ -36,4 +36,9 @@ describe('useDiagnosisStore', () => {
     expect(() => useDiagnosisStore.getState().loadResult()).not.toThrow();
     expect(useDiagnosisStore.getState().loadResult()).toBeNull();
   });
+
+  it('알 수 없는 타입 id가 저장돼 있으면 null을 반환한다', () => {
+    localStorage.setItem('sa:lastResult', JSON.stringify({ colorType: 'bogus', frameType: 'straight' }));
+    expect(useDiagnosisStore.getState().loadResult()).toBeNull();
+  });
 });
