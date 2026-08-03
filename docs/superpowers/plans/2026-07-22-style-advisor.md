@@ -157,7 +157,7 @@ export interface PhotoHint {
 3. 계절: warm이면 `value >= 0` → spring, else autumn. cool이면 `chroma >= 0` → winter, else summer.
 4. 세부 2타입:
    - spring: `chroma >= 0` → `spring-bright`, else `spring-light`
-   - autumn: `value <= 0`(더 어두움) → `autumn-deep`, else `autumn-mute`
+   - autumn: `value <= -2` → `autumn-deep`, else `autumn-mute` (가을은 value<0에서 선택되므로, 세부는 깊이 임계값으로 구분)
    - summer: `value >= 0`(더 밝음) → `summer-light`, else `summer-mute`
    - winter: `value <= 0`(더 어두움) → `winter-deep`, else `winter-bright`
 5. 골격: `votes` 합산해 최고점. 동점이면 `key==='collarbone'` 문항 답을 우선(스트레이트<웨이브<내추럴 순의 돌출도로 재계산), 그래도 동점이면 straight→wave→natural 순.
@@ -685,7 +685,7 @@ export function classifyColor(s: ColorScore): ColorTypeId {
 
   switch (season) {
     case 'spring': return s.chroma >= 0 ? 'spring-bright' : 'spring-light';
-    case 'autumn': return s.value <= 0 ? 'autumn-deep' : 'autumn-mute';
+    case 'autumn': return s.value <= -2 ? 'autumn-deep' : 'autumn-mute';
     case 'summer': return s.value >= 0 ? 'summer-light' : 'summer-mute';
     case 'winter': return s.value <= 0 ? 'winter-deep' : 'winter-bright';
   }
