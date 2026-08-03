@@ -56,7 +56,7 @@ export function PhotoColorPicker({ onHint, onSkip }: Props) {
       <p>얼굴/손 사진에서 피부 지점을 눌러 웜·쿨 참고 힌트를 받을 수 있어요. (선택)</p>
       <label className="upload-label">
         사진 업로드
-        <input type="file" onChange={onFile} />
+        <input type="file" accept="image/*" onChange={onFile} />
       </label>
       {error && <p role="alert" className="error">{error}</p>}
       {src && (

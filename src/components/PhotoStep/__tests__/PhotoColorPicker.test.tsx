@@ -14,7 +14,7 @@ describe('PhotoColorPicker', () => {
     render(<PhotoColorPicker onHint={vi.fn()} onSkip={vi.fn()} />);
     const input = screen.getByLabelText(/사진 업로드/) as HTMLInputElement;
     const bad = new File(['x'], 'a.txt', { type: 'text/plain' });
-    await userEvent.upload(input, bad);
+    await userEvent.upload(input, bad, { applyAccept: false });
     expect(await screen.findByText(/이미지 파일/)).toBeInTheDocument();
   });
 });
