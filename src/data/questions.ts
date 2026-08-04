@@ -83,7 +83,7 @@ export const frameQuestions: FrameQuestion[] = [
   {
     id: 'f-skin', kind: 'frame', key: 'other', text: '피부 질감에 가까운 것은?',
     options: [
-      { label: '탄력 있는(하리)', votes: { straight: 1 } },
+      { label: '탄력 있는 (탱탱한)', votes: { straight: 1 } },
       { label: '매끄럽고 부드러운', votes: { wave: 1 } },
       { label: '건조하고 매트한', votes: { natural: 1 } },
     ],
