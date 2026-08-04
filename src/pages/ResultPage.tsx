@@ -3,6 +3,7 @@ import { buildGuide } from '../engine/guideBuilder';
 import { TypeSummary } from '../components/Result/TypeSummary';
 import { ColorPalette } from '../components/Result/ColorPalette';
 import { StyleGuideCard } from '../components/Result/StyleGuideCard';
+import { Lookbook } from '../components/Result/Lookbook';
 
 interface Props {
   result: DiagnosisResult;
@@ -18,6 +19,7 @@ export function ResultPage({ result, onRestart }: Props) {
       <ColorPalette title="어울리는 색" colors={guide.palette} />
       <ColorPalette title="피해야 할 색" colors={guide.avoidColors} />
       <StyleGuideCard guide={guide} />
+      <Lookbook result={result} />
 
       <div className="result-actions">
         <button type="button" className="primary" onClick={onRestart}>

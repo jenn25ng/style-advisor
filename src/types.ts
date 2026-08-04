@@ -89,3 +89,13 @@ export interface PhotoHint {
   confidence: number;      // 0..1
   avgHex: string;
 }
+
+export type LookItemRole = 'top' | 'bottom' | 'point';
+export interface LookItem { role: LookItemRole; name: string; hex: string; }
+export interface Look {
+  theme: string;      // '데일리' | '포인트 룩' | '모던'
+  top: LookItem;
+  bottom: LookItem;
+  point: LookItem;
+  fitLabel: string;   // 골격 기반 핏/실루엣 라벨
+}
