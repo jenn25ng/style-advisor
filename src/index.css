@@ -468,3 +468,8 @@ code {
   font-size: 0.78rem;
   color: var(--accent-strong);
 }
+
+/* 결과 공유 (구글폼 수집) */
+.share-result { margin: 8px 0 24px; text-align: center; }
+.share-note { margin: 8px 0 0; font-size: 0.78rem; color: var(--text); }
+.share-done { font-weight: 600; color: var(--accent-strong); }
