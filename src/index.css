@@ -412,15 +412,15 @@ code {
   font-size: 1.05rem;
   color: var(--text-h);
 }
+/* 카드는 항상 세로 1열(컨테이너 480px라 3열은 너무 좁아 글자가 세로로 쪼개짐) */
 .looks { display: flex; flex-direction: column; gap: 14px; }
-@media (min-width: 40rem) { .looks { flex-direction: row; } .look-card { flex: 1; } }
 .look-card { border: 1px solid var(--border); border-radius: 16px; padding: 16px; background: #fff; text-align: left; }
 .look-title { margin: 0 0 4px; font-size: 1rem; color: var(--text-h); }
 .look-rationale { margin: 0 0 12px; font-size: 0.85rem; color: var(--text); }
 .look-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.look-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+.look-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; flex-wrap: wrap; }
 .look-dot { width: 16px; height: 16px; border-radius: 5px; border: 1px solid var(--border); flex: 0 0 auto; }
-.look-item-text { color: var(--text-h); flex: 1; }
+.look-item-text { color: var(--text-h); flex: 1; min-width: 0; word-break: keep-all; }
 .look-shop { color: var(--accent-strong); font-weight: 600; white-space: nowrap; text-decoration: none; }
 .look-shop:hover { text-decoration: underline; }
 
