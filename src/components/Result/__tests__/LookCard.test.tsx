@@ -24,7 +24,7 @@ describe('LookCard v2', () => {
     render(<LookCard look={look} />);
     const links = screen.getAllByRole('link', { name: /보러가기/ });
     expect(links).toHaveLength(3);
-    expect(links[0]).toHaveAttribute('href', expect.stringContaining('search.shopping.naver.com'));
+    expect(links[0]).toHaveAttribute('href', expect.stringContaining('google.com/search'));
     expect(links[0]).toHaveAttribute('href', expect.stringContaining(encodeURIComponent('코랄 셔츠')));
     expect(links[0]).toHaveAttribute('target', '_blank');
     expect(links[0]).toHaveAttribute('rel', expect.stringContaining('noopener'));
