@@ -13,7 +13,7 @@ export function Lookbook({ result }: Props) {
       <h3>이렇게 입어보세요</h3>
       <div className="looks">
         {looks.map((lk, i) => (
-          <LookCard key={i} look={lk} frame={result.frameType} />
+          <LookCard key={i} look={lk} />
         ))}
       </div>
     </section>
