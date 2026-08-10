@@ -412,62 +412,17 @@ code {
   font-size: 1.05rem;
   color: var(--text-h);
 }
-.looks {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-@media (min-width: 40rem) {
-  .looks {
-    flex-direction: row;
-  }
-  .look-card {
-    flex: 1;
-  }
-}
-.look-card {
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 14px;
-  background: #fff;
-  text-align: center;
-}
-.look-figure {
-  width: 96px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
-}
-.look-theme {
-  font-weight: 700;
-  color: var(--text-h);
-  margin: 0 0 8px;
-}
-.look-items {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-}
-.look-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  color: var(--text);
-}
-.look-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  display: inline-block;
-}
-.look-fit {
-  margin: 10px 0 0;
-  font-size: 0.78rem;
-  color: var(--accent-strong);
-}
+.looks { display: flex; flex-direction: column; gap: 14px; }
+@media (min-width: 40rem) { .looks { flex-direction: row; } .look-card { flex: 1; } }
+.look-card { border: 1px solid var(--border); border-radius: 16px; padding: 16px; background: #fff; text-align: left; }
+.look-title { margin: 0 0 4px; font-size: 1rem; color: var(--text-h); }
+.look-rationale { margin: 0 0 12px; font-size: 0.85rem; color: var(--text); }
+.look-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.look-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+.look-dot { width: 16px; height: 16px; border-radius: 5px; border: 1px solid var(--border); flex: 0 0 auto; }
+.look-item-text { color: var(--text-h); flex: 1; }
+.look-shop { color: var(--accent-strong); font-weight: 600; white-space: nowrap; text-decoration: none; }
+.look-shop:hover { text-decoration: underline; }
 
 /* 결과 공유 (구글폼 수집) */
 .share-result { margin: 8px 0 24px; text-align: center; }
