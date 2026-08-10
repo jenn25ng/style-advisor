@@ -428,3 +428,19 @@ code {
 .share-result { margin: 8px 0 24px; text-align: center; }
 .share-note { margin: 8px 0 0; font-size: 0.78rem; color: var(--text); }
 .share-done { font-weight: 600; color: var(--accent-strong); }
+.fit-tip { margin: 0 0 12px; font-size: 0.85rem; color: var(--accent-strong); font-weight: 600; text-align: left; }
+
+/* 위저드 이전(뒤로) 버튼 — 보조(고스트) 스타일 */
+.wizard-back {
+  align-self: flex-start;
+  margin: 0 0 4px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.wizard-back:hover { background: rgba(0, 0, 0, 0.04); }
+.wizard-back:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }

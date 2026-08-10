@@ -33,6 +33,10 @@ export function DiagnosePage({ onDone }: Props) {
     }
   }, [reset]);
 
+  function goBack() {
+    setStep((s) => Math.max(0, s - 1));
+  }
+
   function goNext() {
     const nextStep = step + 1;
     if (nextStep >= TOTAL) {
@@ -68,6 +72,12 @@ export function DiagnosePage({ onDone }: Props) {
   return (
     <main className="diagnose-page">
       <ProgressBar current={step + 1} total={TOTAL} />
+
+      {step > 0 && (
+        <button type="button" className="wizard-back" onClick={goBack}>
+          이전
+        </button>
+      )}
 
       {step === PHOTO_STEP ? (
         <PhotoColorPicker onHint={onPhotoHint} onSkip={goNext} />
