@@ -21,8 +21,17 @@ describe('questions', () => {
     const ids = [...colorQuestions, ...frameQuestions].map((q) => q.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
-  it('문항 개수: 색 9 + 골격 7 (중간 정밀도)', () => {
-    expect(colorQuestions.length).toBe(9);
-    expect(frameQuestions.length).toBe(7);
+  it('문항 개수: 색 10 + 골격 8 (판별 문항 보강)', () => {
+    expect(colorQuestions.length).toBe(10);
+    expect(frameQuestions.length).toBe(8);
+  });
+  it('판별 강화 문항이 포함된다(c-face 가중치2, f-gain votes2)', () => {
+    const face = colorQuestions.find((q) => q.id === 'c-face');
+    expect(face?.weight).toBe(2);
+    const gain = frameQuestions.find((q) => q.id === 'f-gain');
+    const maxVote = Math.max(
+      ...gain!.options.flatMap((o) => Object.values(o.votes)),
+    );
+    expect(maxVote).toBe(2);
   });
 });

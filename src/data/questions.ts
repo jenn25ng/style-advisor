@@ -2,6 +2,15 @@ import type { ColorQuestion, FrameQuestion } from '../types';
 
 export const colorQuestions: ColorQuestion[] = [
   {
+    id: 'c-face', kind: 'color', weight: 2,
+    text: '얼굴 가까이 옷을 대봤을 때, 어느 쪽이 얼굴이 화사하고 혈색이 좋아 보이나요?',
+    options: [
+      { label: '따뜻한 색(코랄·카멜·황금빛)', scores: { warmCool: +2 } },
+      { label: '차가운 색(푸시아·실버·순백)', scores: { warmCool: -2 } },
+      { label: '잘 모르겠음', scores: {} },
+    ],
+  },
+  {
     id: 'c-metal', kind: 'color', text: '금/은 액세서리 중 얼굴이 더 화사해 보이는 쪽은?',
     options: [
       { label: '골드', scores: { warmCool: +2 } },
@@ -76,6 +85,14 @@ export const frameQuestions: FrameQuestion[] = [
       { label: '잘 안 보이고 평평하다', votes: { straight: 2 } },
       { label: '얇게 살짝 도드라진다', votes: { wave: 2 } },
       { label: '두껍고 크게 튀어나온다', votes: { natural: 2 } },
+    ],
+  },
+  {
+    id: 'f-gain', kind: 'frame', key: 'other', text: '살이 찌면 주로 어디부터 찌나요?',
+    options: [
+      { label: '얼굴·상반신, 전체적으로 입체감 있게', votes: { straight: 2 } },
+      { label: '하반신(허벅지·엉덩이)부터', votes: { wave: 2 } },
+      { label: '잘 안 찌고 뼈대·관절이 그대로 드러남', votes: { natural: 2 } },
     ],
   },
   {
