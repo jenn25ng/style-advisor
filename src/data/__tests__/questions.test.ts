@@ -21,4 +21,8 @@ describe('questions', () => {
     const ids = [...colorQuestions, ...frameQuestions].map((q) => q.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
+  it('문항 개수: 색 9 + 골격 7 (중간 정밀도)', () => {
+    expect(colorQuestions.length).toBe(9);
+    expect(frameQuestions.length).toBe(7);
+  });
 });

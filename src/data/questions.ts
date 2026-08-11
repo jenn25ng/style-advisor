@@ -45,6 +45,28 @@ export const colorQuestions: ColorQuestion[] = [
       { label: '은은하고 부드러운 색', scores: { chroma: -2 } },
     ],
   },
+  {
+    id: 'c-blush', kind: 'color', text: '얼굴에 화색을 더하는 립·블러셔 색은?',
+    options: [
+      { label: '코랄·피치·오렌지 계열', scores: { warmCool: +2 } },
+      { label: '핑크·로즈·플럼 계열', scores: { warmCool: -2 } },
+      { label: '잘 모르겠음', scores: {} },
+    ],
+  },
+  {
+    id: 'c-eye', kind: 'color', text: '눈동자·머리카락 색은 어떤 편인가요?',
+    options: [
+      { label: '밝은 갈색·부드러운 톤', scores: { value: +2 } },
+      { label: '진한 검정·어두운 톤', scores: { value: -2 } },
+    ],
+  },
+  {
+    id: 'c-vivid', kind: 'color', text: '쨍한 원색 옷을 입으면?',
+    options: [
+      { label: '생기있고 또렷해 보인다', scores: { chroma: +2 } },
+      { label: '색이 떠 보이고 부담스럽다', scores: { chroma: -2 } },
+    ],
+  },
 ];
 
 export const frameQuestions: FrameQuestion[] = [
@@ -86,6 +108,22 @@ export const frameQuestions: FrameQuestion[] = [
       { label: '탄력 있는 (탱탱한)', votes: { straight: 1 } },
       { label: '매끄럽고 부드러운', votes: { wave: 1 } },
       { label: '건조하고 매트한', votes: { natural: 1 } },
+    ],
+  },
+  {
+    id: 'f-knee', kind: 'frame', key: 'other', text: '무릎은 어떤 편인가요?',
+    options: [
+      { label: '작고 잘 안 보인다', votes: { straight: 1 } },
+      { label: '작고 둥글다', votes: { wave: 1 } },
+      { label: '크고 각져서 도드라진다', votes: { natural: 1 } },
+    ],
+  },
+  {
+    id: 'f-neck', kind: 'frame', key: 'other', text: '목은 어떤 편인가요?',
+    options: [
+      { label: '짧은 편이다', votes: { straight: 1 } },
+      { label: '길고 가는 편이다', votes: { wave: 1 } },
+      { label: '굵고 힘줄·뼈가 보인다', votes: { natural: 1 } },
     ],
   },
 ];
