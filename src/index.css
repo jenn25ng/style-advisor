@@ -281,6 +281,30 @@ code {
   font-size: 0.8rem;
 }
 
+/* 진단 신뢰도 배지 + 참고용 안내 */
+.confidence {
+  display: inline-block;
+  margin: 14px auto 0;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.confidence--high { background: rgba(22, 163, 74, 0.12); color: #15803d; }
+.confidence--mid { background: rgba(217, 119, 6, 0.12); color: #b45309; }
+.confidence--low { background: rgba(100, 116, 139, 0.14); color: #475569; }
+.disclaimer {
+  margin: 10px auto 0;
+  max-width: 32rem;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--social-bg);
+  color: var(--text);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
 .palette {
   margin: 0 0 24px;
 }
